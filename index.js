@@ -1,0 +1,24 @@
+const loadLessons = () => {
+    fetch('https://openapi.programming-hero.com/api/levels/all')
+    .then((res) => res.json())
+    .then((json) => displayLessons(json.data));
+};
+
+const displayLessons = (lessons) => {
+    // 1.get the container empty 
+    const levelContainer = document.getElementById('level-container');
+    levelContainer.innerHTML = "";
+    // 2. get into every lessons 
+    for(const lesson of lessons){
+        // 3.create element
+        const btnDiv = document.createElement('div')
+        btnDiv.innerHTML =`
+          <button class="btn btn-outline btn-primary">Logout</button>
+        `
+        //4. append child into the container
+        levelContainer.append(btnDiv)
+    }
+}
+loadLessons();
+
+console.log('band')
