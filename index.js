@@ -13,7 +13,7 @@ const displayLessons = (lessons) => {
         // 3.create element
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML =`
-          <button class="btn btn-outline btn-primary">Logout</button>
+          <button class="btn btn-outline btn-primary">Lesson - ${lesson.level_no}</button>
         `
         //4. append child into the container
         levelContainer.append(btnDiv)
@@ -21,4 +21,4 @@ const displayLessons = (lessons) => {
 }
 loadLessons();
 
-console.log('band')
+
