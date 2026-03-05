@@ -4,6 +4,17 @@ const loadLessons = () => {
     .then((json) => displayLessons(json.data));
 };
 
+const loadLevelWord = (id)  => {
+    const url = `https://openapi.programming-hero.com/api/level/${id}`;
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayLevelWords(data.data))
+} 
+
+const displayLevelWords = (words) => {
+    
+}
+
 const displayLessons = (lessons) => {
     // 1.get the container empty 
     const levelContainer = document.getElementById('level-container');
@@ -13,7 +24,9 @@ const displayLessons = (lessons) => {
         // 3.create element
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML =`
-          <button class="btn btn-outline btn-primary">Lesson - ${lesson.level_no}</button>
+          <button onclick="loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary">
+          Lesson - ${lesson.level_no}
+          </button>
         `
         //4. append child into the container
         levelContainer.append(btnDiv)
