@@ -67,6 +67,18 @@
         <p class="font-bangla">
             আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
         </p>
+
+        <div>
+          <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <label class="label">Email</label>
+  <input type="email" class="input" placeholder="Email" />
+
+  <label class="label">Password</label>
+  <input type="password" class="input" placeholder="Password" />
+
+  <button class="btn btn-neutral mt-4">Login</button>
+</fieldset>
+        </div>
     </div>
     <div class="image flex-1">
         <img src="assets/hero-student.png" alt="">
@@ -89,7 +101,20 @@
             <h2 class="text-4xl font-bold">একটি Lesson Select করুন।</h2>
        </div>
  </section>
- 
+ <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 <script src="index.js"></script>
 </body>
 </html>

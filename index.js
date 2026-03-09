@@ -11,6 +11,14 @@ const loadLevelWord = (id)  => {
     .then((data) => displayLevelWords(data.data))
 } 
 
+const loadWordDetail = async(id) => {
+        const url = `https://openapi.programming-hero.com/api/word/${id}`
+        console.log(url)
+        const res = await fetch(url)
+        const details = await res.json()
+        console.log(details)
+}
+
 const displayLevelWords = (words) => {
     const wordContainer = document.getElementById('word-container')
     wordContainer.innerHTML = "";
@@ -26,7 +34,6 @@ const displayLevelWords = (words) => {
     }
 
     words.forEach((word) => {
-        console.log(word)
         const card = document.createElement('div')
         card.innerHTML = `
          <div class="bg-white rounded-xl shadow-sm text-center py-10 px-5 space-y-4">
@@ -34,7 +41,7 @@ const displayLevelWords = (words) => {
             <p class="font-semibold">${word.meaning? word.meaning : 'not available'  }</p>
             <div class="text-2xl font-medium font-bangla">${word.pronunciation? word.pronunciation : 'not available'  }</div>
             <div class="flex justify-between items-center">
-                <button class="btn bg-gray-300"><i class="fa-solid fa-circle-info"></i></button>
+                <button onclick="loadWordDetail(${word.id})" class="btn bg-gray-300"><i class="fa-solid fa-circle-info"></i></button>
                 <button class="btn bg-gray-300"><i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
